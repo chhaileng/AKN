@@ -71,7 +71,7 @@
             </objects>
             <point key="canvasLocation" x="1471" y="-18"/>
         </scene>
-        <!--New article-->
+        <!--New Article-->
         <scene sceneID="z7n-Sf-AU8">
             <objects>
                 <viewController storyboardIdentifier="editArticleStoryboard" id="ypE-cx-Cuc" customClass="EditArticleViewController" customModule="AKN" customModuleProvider="target" sceneMemberID="viewController">
@@ -85,7 +85,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="rvJ-hu-XxX">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="rvJ-hu-XxX">
                                 <rect key="frame" x="8" y="74" width="126" height="87"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -127,7 +127,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Txd-FW-a9x"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New article" id="obx-wz-0ot">
+                    <navigationItem key="navigationItem" title="New Article" id="obx-wz-0ot">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Hdc-48-IIl">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -144,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6K-mi-TO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2580" y="-484"/>
+            <point key="canvasLocation" x="2529" y="-437"/>
         </scene>
         <!--All Khmer News-->
         <scene sceneID="NaK-FA-4Z3">
@@ -173,7 +173,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q85-Zq-eGf">
-                                                <rect key="frame" x="8" y="238" width="147" height="17"/>
+                                                <rect key="frame" x="8" y="238" width="156" height="17"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25-12-2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7w8-Kh-5Sl">
                                                         <rect key="frame" x="0.0" y="0.0" width="76" height="17"/>
@@ -181,8 +181,8 @@
                                                         <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" | 32 Views" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdh-ZU-fq8">
-                                                        <rect key="frame" x="76" y="0.0" width="71" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" | 234 Views" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdh-ZU-fq8">
+                                                        <rect key="frame" x="76" y="0.0" width="80" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -265,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5R-gd-5al" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2968.8000000000002" y="250.52473763118442"/>
+            <point key="canvasLocation" x="2530" y="340"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SRG-9c-K17">

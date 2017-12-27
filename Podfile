@@ -6,4 +6,5 @@ target 'AKN' do
 	pod 'Alamofire'
 	pod 'ObjectMapper'
 	pod 'Kingfisher'
+	pod 'KVLoading'
 end

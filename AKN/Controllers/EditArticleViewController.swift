@@ -8,8 +8,10 @@
 
 import UIKit
 import Kingfisher
+import KVLoading
+import Photos
 
-class EditArticleViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class EditArticleViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var articlePresenter: ArticlePresenter?
 
@@ -36,6 +38,7 @@ class EditArticleViewController: UIViewController, UIImagePickerControllerDelega
         dateLabel.text = getCurrentDate()
         
         if isUpdate {
+            self.title = "Update Article"
             titleTextField.text = articleTitle
             descriptionTextView.text = articleDescription
             
@@ -48,16 +51,36 @@ class EditArticleViewController: UIViewController, UIImagePickerControllerDelega
         }
         
         let browseImage : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(browseImage(gesture:)))
-        browseImage.delegate = self
-        self.imageView.addGestureRecognizer(browseImage)
+        imageView.addGestureRecognizer(browseImage)
         
     }
     
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        DispatchQueue.main.async {
+            self.imageView.image = image
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     @objc func browseImage(gesture : UITapGestureRecognizer!) {
-        
+        checkLibraryPermission()
+    }
+    
+    func showBrowseImage() {
+        let imageController = UIImagePickerController()
+        imageController.delegate = self
+        imageController.sourceType = .photoLibrary
+        self.present(imageController, animated: true, completion: nil)
     }
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        KVLoading.show()
         if isUpdate {
             article.id = articleId!
         } else {
@@ -68,17 +91,31 @@ class EditArticleViewController: UIViewController, UIImagePickerControllerDelega
         article.description = descriptionTextView.text
         self.articlePresenter?.insertUpdateArticle(article: article, image: image!)
     }
-
     
-    
-    
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image:UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        DispatchQueue.main.async {
-            self.imageView.image = image
+    func checkLibraryPermission() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        switch status {
+        case .authorized:
+            self.showBrowseImage()
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization( { (newStatus) in
+                if newStatus ==  PHAuthorizationStatus.authorized {
+                    self.showBrowseImage()
+                }
+            })
+        case .restricted, .denied:
+            let denied = UIAlertController(title: "Permission denied", message: "Goto Settings > Privacy > Photos and allow permission.", preferredStyle: .alert)
+            denied.addAction(UIAlertAction(title: "Not now", style: .cancel, handler: nil))
+            denied.addAction(UIAlertAction(title: "Setting", style: .default, handler: { action in
+                guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: nil)
+                }
+            }))
+            present(denied, animated: true)
         }
-        self.dismiss(animated: true, completion: nil)
     }
     
     func getCurrentDate() -> String {
@@ -107,6 +144,7 @@ extension EditArticleViewController: ArticlePresenterProtocol {
     func didResponseArticles(_ articles: [Article]) { }
     
     func didResponseMessage(_ msg: String) {
+        KVLoading.hide()
         let saved = UIAlertController(title: msg, message: nil, preferredStyle: .alert)
         saved.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             self.navigationController?.popViewController(animated: true)

@@ -53,7 +53,7 @@
                                 <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2345 Views" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSy-of-3Bi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="234 Views" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSy-of-3Bi">
                                 <rect key="frame" x="165" y="77" width="188" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4Bi-ZU-28P"/>
@@ -63,15 +63,15 @@
                                 <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baby-monkey-in-overalls" translatesAutoresizingMaskIntoConstraints="NO" id="krq-sx-FgK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="krq-sx-FgK">
                                 <rect key="frame" x="5" y="5" width="128" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="krq-sx-FgK" secondAttribute="height" multiplier="134:97" constant="-6" id="0CH-6z-wyq"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kyq-v6-sGi" customClass="CustomButton" customModule="AKN" customModuleProvider="target">
-                                <rect key="frame" x="382" y="75" width="61" height="23"/>
-                                <color key="backgroundColor" red="0.0" green="0.69570728209999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="391" y="75" width="61" height="23"/>
+                                <color key="backgroundColor" red="0.8090328574180603" green="0.13366064429283142" blue="0.135498046875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="61" id="1HL-Cc-i5e"/>
                                     <constraint firstAttribute="height" constant="23" id="lez-dN-iR8"/>
@@ -81,7 +81,7 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerButton">
-                                        <real key="value" value="5"/>
+                                        <real key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
@@ -100,7 +100,7 @@
                             <constraint firstItem="qyP-6z-eNi" firstAttribute="top" secondItem="fJU-If-1MC" secondAttribute="bottom" constant="4" id="MKc-OJ-wgc"/>
                             <constraint firstAttribute="bottom" secondItem="Kyq-v6-sGi" secondAttribute="bottom" constant="9" id="N9f-cL-t4P"/>
                             <constraint firstItem="6mi-Px-19N" firstAttribute="top" secondItem="Xkz-FE-9jV" secondAttribute="top" constant="5" id="SUx-bt-QIi"/>
-                            <constraint firstAttribute="trailing" secondItem="Kyq-v6-sGi" secondAttribute="trailing" constant="18" id="Tth-jW-xb9"/>
+                            <constraint firstAttribute="trailing" secondItem="Kyq-v6-sGi" secondAttribute="trailing" constant="9" id="Tth-jW-xb9"/>
                             <constraint firstItem="krq-sx-FgK" firstAttribute="leading" secondItem="Xkz-FE-9jV" secondAttribute="leading" constant="5" id="gI4-VI-yDE"/>
                             <constraint firstItem="6mi-Px-19N" firstAttribute="leading" secondItem="krq-sx-FgK" secondAttribute="trailing" constant="8" id="hLg-7A-Vo4"/>
                             <constraint firstItem="PSy-of-3Bi" firstAttribute="top" secondItem="hxy-ds-bMl" secondAttribute="bottom" constant="4" id="mLR-WT-WIx"/>
@@ -130,8 +130,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="baby-monkey-in-overalls" width="400" height="574"/>
         <image name="calender" width="24" height="24"/>
+        <image name="no-image" width="800" height="600"/>
         <image name="view" width="24" height="24"/>
     </resources>
 </document>

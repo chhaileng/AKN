@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KVLoading
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -22,6 +23,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        KVLoading.show()
+        
         self.articles = [Article]()
         self.articlePresenter = ArticlePresenter()
         currentPage = 1
@@ -64,7 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             let confirmDelete = UIAlertController(title: "Are you sure to delete this article?", message: nil, preferredStyle: .alert)
-            confirmDelete.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            confirmDelete.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
                 self.articlePresenter?.deleteArticle(id: self.articles![indexPath.row].id!)
                 self.articles?.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
@@ -113,11 +117,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc private func refreshArticles() {
+        KVLoading.show()
         self.articles = []
         currentPage = 1
         self.articlePresenter?.getArticles(page: currentPage!, limit: 15)
         self.tableView.reloadData()
         self.refreshControl.endRefreshing()
+        KVLoading.hide()
     }
     
     @IBAction func actionButton(_ sender: UIBarButtonItem) {
@@ -150,6 +156,7 @@ extension ViewController: ArticlePresenterProtocol {
             self.tableView.reloadData()
             self.indicatorView.stopAnimating()
         }
+        KVLoading.hide()
     }
     
     func didResponseMessage(_ msg: String) { }
